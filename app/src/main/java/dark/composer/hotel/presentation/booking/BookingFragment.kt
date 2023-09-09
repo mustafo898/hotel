@@ -1,7 +1,6 @@
 package dark.composer.hotel.presentation.booking
 
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.lifecycleScope
@@ -61,11 +60,10 @@ class BookingFragment : BaseFragment<FragmentBookingBinding>(FragmentBookingBind
         binding.email.addTextChangedListener {
             it?.let {
                 if (it.toString().trim().matches(emailPattern.toRegex()) && it.isNotEmpty()) {
-                    Log.d("sdfdfsfsdf", "onViewCreate: true")
-                    binding.emailInput.helperText = "Введенo неправильно"
-                } else {
-                    Log.d("sdfdfsfsdf", "onViewCreate:  false")
                     binding.emailInput.isHelperTextEnabled = false
+                } else {
+                    binding.emailInput.helperText = "Введенo неправильно"
+                    binding.emailInput.isHelperTextEnabled = true
                 }
             }
         }
